@@ -7,7 +7,7 @@ function url(endpoint) {
 
 export async function getAllBooks() {
 	const response = await fetch(url('books'));
-	const data = await response.jason();
+	const data = await response.json();
 	return data;
 }
 
