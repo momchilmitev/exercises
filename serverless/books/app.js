@@ -8,17 +8,25 @@ window.addEventListener('load', () => {
 
 	document.getElementById('loadBooks').addEventListener('click', displayBooks);
 	document.getElementById('submit').addEventListener('click', addBook);
+	table.addEventListener('click', (e) => {
+		if (e.target.id === 'delete') {
+			removeBook(e.target);
+		}
+	});
 
 	async function displayBooks() {
 		table.innerHTML = '<tr><td colspan="4">Loading ...</td></tr>';
 		const books = await api.getAllBooks();
 		table.innerHTML = '';
 		books.forEach((b) => table.insertAdjacentHTML('beforeend', renderBook(b)));
+		// Array.from(document.querySelectorAll('#delete')).forEach((b) => {
+		// 	b.addEventListener('click', removeBook);
+		// });
 	}
 
 	function renderBook(book) {
 		return `
-      <tr>
+      <tr data-id="${book.objectId}">
         <td>${book.title}</td>
         <td>${book.author}</td>
         <td>${book.isbn}</td>
@@ -58,6 +66,23 @@ window.addEventListener('load', () => {
 		} catch (e) {
 			alert(e);
 			console.error(e);
+		}
+	}
+
+	async function removeBook(target) {
+		const btn = target;
+		const id = target.parentNode.parentNode.getAttribute('data-id');
+		const book = target.parentNode.parentNode;
+		try {
+			btn.disabled = true;
+			btn.textContent = 'wait...';
+			await api.deleteBook(id);
+			book.remove();
+		} catch (e) {
+			btn.disabled = false;
+			btn.textContent = 'Delete';
+			alert(e);
+			console.log(e);
 		}
 	}
 });
