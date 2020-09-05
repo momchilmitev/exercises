@@ -11,6 +11,11 @@ window.addEventListener('load', () => {
 	table.addEventListener('click', (e) => {
 		if (e.target.id === 'delete') {
 			removeBook(e.target);
+		} else if (e.target.id === 'edit') {
+			const answer = confirm('Are you sure!');
+			if (answer) {
+				editBook(e.target);
+			}
 		}
 	});
 
@@ -27,9 +32,9 @@ window.addEventListener('load', () => {
 	function renderBook(book) {
 		return `
       <tr data-id="${book.objectId}">
-        <td>${book.title}</td>
-        <td>${book.author}</td>
-        <td>${book.isbn}</td>
+        <td contenteditable="true">${book.title}</td>
+        <td contenteditable="true">${book.author}</td>
+        <td contenteditable="true">${book.isbn}</td>
         <td>
           <button id="edit">Edit</button>
           <button id="delete">Delete</button>
@@ -84,5 +89,21 @@ window.addEventListener('load', () => {
 			alert(e);
 			console.log(e);
 		}
+	}
+
+	async function editBook(target) {
+		const id = target.parentNode.parentNode.getAttribute('data-id');
+		const rowElements = Array.from(target.parentNode.parentNode.children)
+			.slice(0, 3)
+			.map((el) => el.textContent);
+
+		const book = {
+			objectId: id,
+			title: rowElements[0],
+			author: rowElements[1],
+			isbn: rowElements[2],
+		};
+
+		api.updateBook(book);
 	}
 });
