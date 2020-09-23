@@ -1,2 +1,2 @@
 # exercises
-Exercising template engines, routing, BaaS and other stuff.
+Simple todo app with html, css and javascript
