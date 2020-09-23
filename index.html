@@ -9,10 +9,9 @@
   <body>
     <h1>Todo list</h1>
     <div class="contsiner">
-      <input type="checkbox" name="done" id="done" />
-      <input class="task" type="text" />
-      <button id="add">add</button>
-      <ul class="tasks"></ul>
+      <input id="task" type="text" />
+      <button id="add" onClick="todo.addTask()">add</button>
+      <ul id="tasks"></ul>
     </div>
 
     <script src="script.js"></script>
