@@ -1,0 +1,29 @@
+{
+  "name": "todo_app",
+  "version": "1.0.0",
+  "description": "Simple todo app with html, css and javascript",
+  "main": "index.js",
+  "scripts": {
+    "watch": "concurrently \"npm run serve\" \"babel src -d dist -ws\"",
+    "build": "rm -rf dist && babel src -d dist",
+    "serve": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momchilmitev/todo_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/momchilmitev/todo_app/issues"
+  },
+  "homepage": "https://github.com/momchilmitev/todo_app#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "concurrently": "^5.3.0",
+    "http-server": "^0.12.3"
+  }
+}
