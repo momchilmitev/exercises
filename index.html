@@ -7,12 +7,14 @@
     <title>Todo App</title>
   </head>
   <body>
-    <h1>Todo list</h1>
-    <div class="contsiner">
-      <input id="task" type="text" />
-      <button id="add" onClick="todo.addTask()">add</button>
+    <section class="container">
+      <h1 class="title">Todo list</h1>
+      <div class="create-task">
+        <input id="task" type="text" placeholder="task name" />
+        <button class="btn" id="add" onClick="todo.addTask()">+</button>
+      </div>
       <ul id="tasks"></ul>
-    </div>
+    </section>
 
     <script src="dist/script.js"></script>
   </body>

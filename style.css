@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ecf3f0;
+}
+
+.container {
+  background: #ecf3f0;
+  color: #555;
+  width: 430px;
+  height: 700px;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.create-task {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+#task {
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+  padding: 15px;
+  width: 70%;
+}
+
+#tasks {
+  width: 100%;
+  padding: 0;
+}
+
+.task {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.task span {
+  border-radius: 25px;
+  font-size: 24px;
+  color: #555;
+  box-shadow: 8px 8px 8px #cbced1, -8px -8px 8px #ffffff;
+  padding: 15px;
+  width: 70%;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background-color: blue;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  background: #ecf3f0;
+  border-radius: 50%;
+  padding: 15px 22px;
+  box-shadow: 3px 3px 8px #cbced1, -3px -3px 8px #ffffff;
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: inset 3px 3px 8px #cbced1, inset -3px -3px 8px #ffffff;
+}

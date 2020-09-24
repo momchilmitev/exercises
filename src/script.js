@@ -38,19 +38,17 @@ class ToDo {
 
   generateTaskHtml(task, index) {
     return `
-      <li>
-        <input 
-          id="toggleTaskStatus" 
-          type="checkbox"
-          onchange="todo.toggleTaskStatus(${index})"
-          ${task.isComplete ? "checked" : ""} 
-        />
-        <span>${task.name}</span>
+      <li class="task">
+        <span
+          onclick="todo.toggleTaskStatus(${index})"
+          style = "text-decoration:${task.isComplete ? "line-through" : ""};"
+        >${task.name}</span>
         <button
+          class="btn"
           id="deleteTask"
           data-id="${index}"
           onclick="todo.deleteTask(${index})"
-        >delete</button>
+        >x</button>
       </li>
     `;
   }
